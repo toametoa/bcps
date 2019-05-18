@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<!-- </div> -->
+<div class="container col-md-10 border bg-white"> 
+
+  <LEGEND class="card-title text-center">Add SMTP Webmail Access!</LEGEND>
+  <div class="bline2"></div>
+  <form method="POST" class="form-signin">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Email:</label>
+        <input type="email" name="emaill_input" class="form-control" id="inputEmail4" placeholder="Email">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Password:</label>
+        <input type="password" name="pass_input" class="form-control" id="inputPassword4" placeholder="Password">
+      </div>
+    </div>
+
+
+    <div class="form-row">
+      <div class="form-group col-md-9">
+        <label for="inputCity">Host:</label>
+        <input type="text" name="smtp_input" class="form-control" id="inputCity">
+      </div> 
+      <div class="form-group col-md-3">
+        <label for="inputZip">Port:</label>
+        <input type="number" name="port_input" class="form-control" id="inputZip">
+      </div>
+    </div>
+
+
+    <br/><div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" name="sig_input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+          ARC-Message-Signature.
+        </label>
+      </div>
+    </div>
+
+
+    <div class="form-row">
+      <div class="form-group col-md-8">
+        <label for="inputCity">Domain:</label>
+        <input type="text" name="dname_input" class="form-control" id="inputCity">
+      </div> 
+      <div class="form-group col-md-4">
+        <label for="inputZip">Selector Key:</label>
+        <input type="text" name="dselctor_input" class="form-control" id="inputZip">
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">ARC-Message-Signature Private Key:</label>
+      <textarea class="form-control" name="dkey_input" id="exampleFormControlTextarea1" rows="8"></textarea>
+    </div>
+
+    
+    
+    <button type="submit" class="btn btn-info">Submit Access!</button>
+  </form><br/>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+  <small class="blockquote-footer">
+    users cofigratns:   {{ uconfig }}
+  </small>
+
+{% endblock %}

@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+{% load app_filters%}
+{% block content %}
+
+<div class="container-fluid">
+ <div class="d-flex justify-content-between align-items-center">
+  <div><a href="{% url 'blacklist' %}" class="btn btn-light" role="button" aria-pressed="true">  Black-List <span class="badge badge-secondary">{{blacklist}}</span></a>
+  <a href="{% url 'blacklist' %}" class="btn btn-light" role="button" aria-pressed="true">  Email Blocked <span class="badge badge-secondary">{{blocked}}</span></a>
+  <a href="{% url 'failedlist' %}" class="btn btn-light" role="button" aria-pressed="true">  Sending Failed <span class="badge badge-secondary">{{totalfailed}}</span></a>
+  <a href="{% url 'sentlist' %}" class="btn btn-light" role="button" aria-pressed="true">  Sent List <span class="badge badge-secondary">{{ totalsent }}</span></a>
+  <a href="{% url 'waitinglist' %}" class="btn btn-light" role="button" aria-pressed="true">  Waiting List <span class="badge badge-secondary">{{totalwaiting}}</span></a></div>
+
+  <li class="d-flex justify-content-between align-items-center">
+      {% if ison == True %}
+          <a class="badge badge-info" href="/off"><i class="fa fa-spinner fa-spin"></i> Running</a>
+       {% elif ison == False %}
+          <a class="badge badge-secondary" href="/on"><i class="fa fa-pause-circle"></i> Paused</a>
+       {% else %}
+          <a class="badge badge-secondary" href="/on"><i class="fa fa-eye-slash"></i> Hidden</a>
+      {% endif %}
+  </li>
+
+ </div>
+
+  <div class="row">
+
+    <div class="col-sm-3 mx-auto " style="color: #666666">
+
+         <li style="font-size: 0.6rem;" class="list-group-item d-flex justify-content-between align-items-center">
+           <i class="fa fa-envelope-open fa-2x">
+           Today Sent:    </i>
+          <h1 style="color: #A9A012"> {{ todaysent }} </h1> </li>
+          <div class="bline2"></div>
+
+          <div class="bline4"></div>
+          <li style="font-size: 0.6rem;" class="list-group-item d-flex justify-content-between align-items-center">
+            <i class="fa fa-mail-bulk fa-2x">
+           Total Sent:  </i>
+           <h1 style="color: #A9A012"> {{ totalsent }} </h1> </li>
+          <div class="bline2"></div>
+
+          <div class="bline4"></div>
+           <li style="font-size: 0.6rem;" class="list-group-item d-flex justify-content-between align-items-center">
+             <i class="fa fa-users fa-2x">
+            Total Leads:  </i>
+            <h1 style="color: #A9A012"> {{ totalleads }} </h1> </li>
+          <div class="bline2"></div>
+
+          <div class="bline4"></div>
+            <li style="font-size: 0.6rem;" class="list-group-item d-flex justify-content-between align-items-center">
+              <i class="fa fa-envelope fa-2x">
+             Replies:  </i>
+             <h1 style="color: #A9A012"> {{ replies }} </h1> </li>
+          <div class="bline2"></div>
+
+          <div class="bline4"></div>
+             <li style="font-size: 0.6rem;" class="list-group-item d-flex justify-content-between align-items-center">
+               <i class="fa fa-envelope fa-2x">
+               FollowUps:</i>
+              <h1 style="color: #A9A012"> {{ followups }} </h1> </li>
+          <div class="bline2"></div>
+
+
+
+    </div>
+
+   <div class="p-3 card col-sm-9 mx-auto">
+    <div id="container"></div>
+      <script src="https://code.highcharts.com/highcharts.src.js"></script>
+      <script>
+        var CropOpts = JSON.parse("{{ vallist|escapejs }}");
+        var CropOpt = JSON.parse("{{ alldates|escapejs }}");
+        Highcharts.chart('container', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Server Activity(last 15 days)'
+            },
+            xAxis: {
+                categories: CropOpt
+            },
+            series: [{
+                name: 'Daily Number Of Email Sent',
+                data: CropOpts
+            }]
+        });
+      </script>
+
+
+
+
+
+
+
+  </div>
+</div>
+
+ <div class="bline4"></div>
+ <li class="list-group-item d-flex justify-content-between align-items-center">Mothermail:  <div>{{ momail }}</div>
+
+   {% if host_con == 'ok' %}
+        Status: <i style="color: green" class="fa fa-stop"></i>
+       {% else %}
+        <i class="fa fa-times" style="color: red"></i>
+   {% endif %}
+
+ </li>
+ <div class="bline4"></div>
+
+
+
+
+ <table class="table">
+   <thead>
+      <tr class="table-light">
+      <th scope="col">SMTP Emails</th>
+      <th scope="col">Added On</th>
+      <th scope="col">Totall Sent</th>
+      <th scope="col">Status </th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for mail, value in webmails.items %}
+
+      <tr class="table-light">
+        <td>{{ mail }}</td>
+        <td>{{ value.addedon }}</td>
+        <td>{{ value.tsent }}</td>
+
+        <td style="width: 5%;color: white">-
+          {% if value.status == 'ok'%}
+         <i style="color: green;padding-left: 5px" class="fa fa-stop"></i>
+        {% else %}
+        <i class="fa fa-times" style="color: red;padding-left: 5px"></i>
+        {% endif %}</td>
+
+        <td style="width: 5%"><a class="btn btn-light btn-sm" href="/webmail/{{ mail }}"><i class="fas fa-trash-alt"></i> Remove</a></td>
+      </tr>
+     {% endfor%}
+
+   </tbody>
+ </table>
+ <a href="/webmail/add/" class="btn btn-info btn-sm" role="button" aria-pressed="true" style="float: right;"><i class="fas fa-plus fa-1x"></i> Add More</a>
+<br/><br/>
+
+
+
+
+   <div class="col-sm-12 mx-auto"></div>
+<table class="p-3  table  table-bordered">
+  <thead>
+    <ul class="list-group bg-white">
+      <li class="card-header d-flex justify-content-between align-items-center">
+        <h4>Server Log View:</h4>
+    <div class="input-group col-md-4">
+      <input type="text" class="form-control" placeholder="email address" aria-label="Recipient's username" aria-describedby="button-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+      </li>
+    </ul>
+    <tr class="table-light">
+      <th scope="col">Status</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">REPLY</th>
+      <th scope="col">Sending Time</th>
+      <th scope="col">Action </th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for mail  in qmaildataset  %}
+    <tr class="table-light"  style=" color:#7f5a15;">
+      <th style="width: 12%"><i class="fa fa-stopwatch"> </i><small> WAITING</small></th>
+      <td style="word-break:break-all;width: 10%"><b>{{ mail.firstname }}</b></td>
+      <td style ="word-break:break-all;">{{ mail.leadmail }} </td>
+      <td style="width: 10%"> {{ mail.mailtype }}#{{ mail.msgno }}</td>
+      <td style ="word-break:break-all;">{{ mail.stime|formattime|naturaltime }}</td>
+      <td style="width: 10%">
+
+        <a class="btn btn-light btn-sm" href="/blocking/add/{{ mail.leadmail }}">Block Email</a>
+
+
+      </td>
+    </tr>
+      {% endfor %}
+
+    <tr class="table-light"> <td></td><td></td><td></td><td></td> <td>
+      <div class="badge badge-light" role="button" aria-pressed="true" style="float: right;">Total {{totalwaiting}} Emails Waiting, {{totalfailed}} Failed</div>
+     </td><td></td></tr>
+
+      {% for mail  in smaildataset  %}
+    <tr class="table-light">
+      <th  style="color:green;width: 12%"><i class="fa fa-envelope" ></i><small> SENT</small></th>
+      <td style="word-break:break-all;width: 10%"><b>{{ mail.firstname }} </b></td>
+      <td style ="word-break:break-all;">{{ mail.leadmail }} </td>
+      <td style="width: 10%"> {{ mail.mailtype }}#{{ mail.msgno }}</td>
+      <td style ="word-break:break-all;">{{ mail.time|formattime|naturaltime }}</td>
+      <td style="width: 10%">
+
+         <a class="btn btn-light btn-sm" href="/blocking/add/{{ mail.leadmail }}">Block Email</a>
+
+
+      </td>
+    </tr>
+      {% endfor %}
+  </tbody>
+</table>
+<!-- <div class="jumbotron text-center"> -->
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+{% load app_filters%}
+{% block content %}
+
+<div class="container-fluid">
+ 
+<table class="p-3  table  table-bordered">
+  <thead>
+    <ul class="list-group bg-white">
+      <li class="card-header d-flex justify-content-between align-items-center">
+        <h4>Failed List:</h4>
+    <div class="input-group col-md-6">
+      <input type="text" class="form-control" placeholder="email address" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa fa-search"></i></button>
+            </div>
+    </div>
+      </li>
+    </ul>
+    <tr class="table-light">
+      <th scope="col">Status</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">REPLY</th>
+      <th scope="col">Time</th>
+      <th scope="col">Action </th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for mail  in fmaildataset  %}
+    <tr class="table-light">
+      <th style="width: 12%"><i class="fa fa-times-circle" style=" color:red;"> </i><small> Failed</small></th>
+      <td style="width: 10%"><b>{{ mail.firstname }}</b></td>
+      <td>{{ mail.leadmail }} </td>
+      <td style="width: 10%"> {{ mail.mailtype }}#{{ mail.msgno }}</td>
+      <td>{{ mail.stime|formattime|naturaltime }}</td>
+      <td style="width: 10%">
+
+        <a class="btn btn-light btn-sm" href="/blocking/add/{{ mail.leadmail }}">Block Email</a> 
+
+
+      </td>
+    </tr>
+      {% endfor %}
+
+     
+  </tbody>
+</table>
+<!-- <div class="jumbotron text-center"> -->
+  {% if fmaildataset.has_previous %}
+    <a class="btn btn-outline-info mb-4 btn-sm" href="?page=1">First</a>
+    <a class="btn btn-outline-info mb-4 btn-sm" href="?page={{ fmaildataset.previous_page_number }}">Previous</a>
+  {% endif %}
+
+  {% for num in fmaildataset.paginator.page_range %}
+    {% if fmaildataset.number == num %}
+      <a class="btn btn-info mb-4 btn-sm" href="?page={{ num }}">{{ num }}</a>
+    {% elif num > fmaildataset.number|add:'-3' and num < fmaildataset.number|add:'3' %}
+      <a class="btn btn-outline-info mb-4 btn-sm" href="?page={{ num }}">{{ num }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if fmaildataset.has_next %}
+    <a class="btn btn-outline-info mb-4 btn-sm" href="?page={{ fmaildataset.next_page_number }}">Next</a>
+    <a class="btn btn-outline-info mb-4 btn-sm" href="?page={{ fmaildataset.paginator.num_pages }}">Last</a>
+  {% endif %}
+</div>
+
+{% endblock %}

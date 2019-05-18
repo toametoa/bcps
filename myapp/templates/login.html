@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!-- <div class="jumbotron text-center"> -->
+ 
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <p class="card-title text-center"><i class="fab fa-earlybirds  fa-3x"></i></p>
+              <form method="POST" class="form-signin">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                        {{ form|crispy }}
+                </fieldset>
+                
+                    <button class="btn btn-default btn-block active" type="submit">LogIn</button>
+                
+               </form>
+               <div class="col-md-6 col-md-offset-3"><small class="text-muted">
+                Need an account? <a class="ml-2" href="{% url 'register' %}">
+                    Sign Up Now
+                </a>
+               </small></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- </div> -->
+
+{% endblock %}

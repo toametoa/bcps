@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+
+  <div style="height:100vh" class="container-fluid bg-info">
+  <br>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-md-4 mx-auto">
+            <div class="card card-signin my-5">
+              <div class="card-body">
+                <p class="card-title text-center"><i class="fab fa-earlybirds  fa-3x"></i></p>
+                   
+                   {% if user.is_authenticated %}
+
+                   <div class="col-md-12 mx-auto"><small class="text-muted">
+                    Logged In!
+                   </small></div>
+                    <a class="btn btn-block active btn-light" href="{% url 'profile' %}" role="button">GoTo Dashboard</a>
+
+                   {% else %}
+                    <a class="btn btn-block active btn-light" href="{% url 'login' %}" role="button">LogIn</a>
+                   <div class="col-md-12 mx-auto"><small class="text-muted">
+                    Need an account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now </a>
+                   </small></div>
+                   {% endif %}
+                      <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+  </div>
+
+
+
+
+{% endblock %}

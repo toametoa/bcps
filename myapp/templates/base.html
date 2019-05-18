@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+     <style type="text/css">
+     * {
+
+      font-size: 15px;
+    }
+
+
+       /*Bg & card,shadow*/
+
+       :root {
+         --input-padding-x: .5rem;
+         --input-padding-y: .75rem;
+       }
+       @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+       .sidebar {
+            background-color: #283947;
+            height: 100%;
+            width: 235px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            transition: 0.5s;
+       }
+
+       .sidebar a {
+           color: white;
+       }
+
+       .main {
+           background-color: white;
+           transition: margin-left .5s;
+           margin-left: 235px;
+           background-color: #F8F8F8;
+
+
+       }
+
+
+
+    ul.components {
+         padding: 10px 0;
+         border-bottom: 1px solid #47748b;
+     }
+
+     ul p {
+         color: green;
+         padding: 10px;
+     }
+
+      ul li a {
+         padding: 10px;
+         font-size: 1.1em;
+         display: block;
+     }
+      ul li a:hover {
+         color: white;
+         background: #364359;
+         text-decoration: none;
+     }
+
+      ul li.active > a, a[aria-expanded="true"] {
+         color: #fff;
+         background: #364359;
+     }
+      ul li.active >{
+         color: #fff;
+         background: #364359;
+     }
+     ul ul a {
+         font-size: 0.9em !important;
+         padding-left: 30px !important;
+         background: #414f66;
+     }
+
+
+
+
+   .bline {
+     border-top: 3px solid #283947;
+     width: 100%;
+     font-weight: bold;
+     font-size: large;
+     padding-bottom: 3px;
+   }
+   .bline2 {
+     border-top: 3px solid #ccc;
+     width: 100%;
+     font-weight: bold;
+     font-size: large;
+     padding-bottom: 2px;
+   }
+   .bline3 {
+     border-bottom: 1px solid #F5F9F9;
+     width: 100%;
+     height: 0;
+     font-weight: bold;
+     font-size: large;
+   }
+   .bline4 {
+     padding-top:  8px;
+     width: 100%;
+     height: 0;
+     font-weight: bold;
+     font-size: large;
+   }
+   .paddingtop{
+   }
+   .barbtn{
+    z-index: 10;
+    position: absolute;
+    color: #283947;
+   }
+   .cke_1{
+    width: 1800px;
+   }
+  .previewimage{
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+  }
+  .previewimage:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+  .previewimage2{
+    width: 200px;
+    border-radius:  5px;
+  }
+  .previewimage2:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+
+     </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <title>Admin Area | Dashboard.</title>
+</head>
+<body style="color: #5C5B5B">
+
+
+
+  {% if user.is_authenticated %}
+
+
+
+    <div class="sidebar" id="mySidebar">
+
+           <ul class="list-unstyled components px-3">
+
+                       <li class="d-flex justify-content-between align-items-center">
+                           <span ></span><i class="far fa-user-circle fa-4x"></i><span ></span>
+                       </li>
+                       <li class="d-flex justify-content-between align-items-center">
+                           <span ></span><b>{{ user.username }}</b><span ></span>
+                       </li>
+                       <li>
+                           <a href="{% url 'profile' %}" class="d-flex justify-content-between align-items-center"><div><span class="fa fa-home"></span> Dashboard</div></a>
+                       </li>
+                       <li>
+                           <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="d-flex justify-content-between align-items-center" style="color: #fff;
+          background: #364359;"><div><span class="fa fa-envelope-open-text"></span> Message Templates</div> <i class="fas fa-caret-down"></i></a>
+                           <ul class="collapse list-unstyled" id="pageSubmenu">
+                               <li>
+                                   <a href="{% url 'templist' %}"><i class="fa fa-envelope"></i> Reply Templates(10)</a>
+                               </li>
+                               <li>
+                                   <a href="{% url 'templist2' %}"><i class="fa fa-envelope"></i> FollowUp Templates(5)</a>
+                               </li>
+                               <li>
+                                   <a href="{% url 'templist3' %}"><i class="fa fa-envelope"></i> Bulk Templates(5)</a>
+                               </li>
+                           </ul>
+                       </li>
+
+
+                       <li>
+                           <a href="{% url 'settings' %}" class="d-flex justify-content-between align-items-center"><div><span class="fa fa-users-cog"></span> Settings</div></a>
+                       </li>
+                       <li>
+                           <a href="{% url 'blacklist' %}" class="d-flex justify-content-between align-items-center"><div><span class="fa fa-tags"></span> Blacklist</div></a>
+                       </li>
+                       <li>
+                           <a href="{% url 'maillist' %}" class="d-flex justify-content-between align-items-center"><div><span class="fa fa-list-alt"></span> Generate Maillist</div></a>
+                       </li>
+                       <li>
+                           <a href="{% url 'maillistget' %}" class="d-flex justify-content-between align-items-center"><div><span class="fa fa-mail-bulk"></span> Send Bulk</div></a>
+                       </li>
+                       <li>
+                           <a href="{% url 'logout' %}" class="d-flex justify-content-between align-items-center"><div><span class="fa fa-sign-out-alt"></span> Logout</div></a>
+                       </li>
+                   </ul>
+
+</div>
+    <div class="main" id="main">
+
+
+    <div class="bline"></div>
+    {% else %}
+    {% endif %}
+
+        {%if messages%}
+          {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+          </div>
+          {% endfor %}
+        {% endif %}
+
+        <a href="javascript:void(0)" class="barbtn" id="iconClose" onclick="closeNav()"><i class="fas fa-angle-left fa-3x"></i></a>
+        <a href="javascript:void(0)" class="barbtn" id="iconOpen" style="display: none;" onclick="openNav()"><i class="fas fa-angle-right fa-3x"></i></a>
+
+                         {% block content %}{% endblock %}
+
+
+
+
+
+
+
+      </div>
+   </div>
+  <!-- Optional JavaScript -->
+      <script>
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "235px";
+        document.getElementById("main").style.marginLeft = "235px";
+        document.getElementById("iconOpen").style.display = "none";
+        document.getElementById("iconClose").style.display = "block";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        document.getElementById("iconOpen").style.display = "block";
+        document.getElementById("iconClose").style.display = "none";
+      }
+      </script>
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

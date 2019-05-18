@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div style="padding: 10px 30px 30px 30px">
+   <legend class="border-bottom mb-4 d-flex justify-content-between align-items-center">Email Template:  
+    <a href="{% url 'tempdetail' object.id %}update"  class="btn btn-info active">Edit This Template!</a> 
+   </legend>
+   <div class="container">
+     <div class="row">
+       <div class="col-md-6">
+
+
+
+        <div><b>Subject: </b>{{ object.subject|linebreaks  }}</div>
+        <div><b>Body: </b>{{ object.message|safe }}</div>
+        <div><b>Delay Time: </b>{{ object.delay  }} Minutes</div>
+
+
+       </div>
+       <div class="col-md-6">
+
+        <div>
+        {% if object.model_pic_1 %}
+        <a href="{{ object.model_pic_1.url }}"><img src="{{ object.model_pic_1.url }}"  class="previewimage2"></a>
+        {% endif %}
+        {% if object.model_pic_2 %}
+        <a href="{{ object.model_pic_2.url }}"><img src="{{ object.model_pic_2.url }}"  class="previewimage2"></a>
+        {% endif %}
+        </div>
+        <div>
+        {% if object.model_pic_3 %}
+        <a href="{{ object.model_pic_3.url }}"><img src="{{ object.model_pic_3.url }}"  class="previewimage2"></a>
+        {% endif %}
+        {% if object.model_pic_4 %}
+        <a href="{{ object.model_pic_4.url }}"><img src="{{ object.model_pic_4.url }}"  class="previewimage2"></a>
+        {% endif %}
+        </div>
+        <div>
+        {% if object.model_pic_5 %}
+        <a href="{{ object.model_pic_5.url }}"><img src="{{ object.model_pic_5.url }}"  class="previewimage2"></a>
+        {% endif %}
+        {% if object.model_pic_6 %}
+        <a href="{{ object.model_pic_6.url }}"><img src="{{ object.model_pic_6.url }}"  class="previewimage2"></a>
+        {% endif %}
+        </div>
+
+       </div>
+     </div>
+
+
+
+
+        
+        <div><small>(Unique id of this template is {{ object.user  }}{{ object.id  }})</small></div> 
+           
+</div>
+
+{% endblock %}

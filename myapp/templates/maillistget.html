@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<!-- </div> -->
+<div class="container"> 
+        <div class="jumbotron box-shadow">
+          <legend class="text-center">Push Bulk Email!</legend>
+            <form method="POST" class="form-signin">
+              {% csrf_token %}
+                <div class="row"> 
+                     <div class="form-group col-md-3">
+                         <label for="exampleInputEmail1">Message Frequency:</label>
+                         <input name="dtime_input" value="20" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                         <small id="emailHelp" class="form-text text-muted">Seconds</small>
+                       </div>
+
+
+                   <div class=" col-md-5">
+                        <label for="inputGroupSelect04">Choose Email Template:</label> 
+                       <select class="custom-select" id="inputGroupSelect04" name="mvalue_input">
+                         <option selected value="16">Bulk Template-#16</option>
+                         <option value="17">Bulk Template-#17</option>
+                         <option value="18">Bulk Template-#18</option>
+                         <option value="19">Bulk Template-#19</option>
+                         <option value="20">Bulk Template-#20</option>
+                         <option value="rand">Random Bulk Template</option>
+                       </select>
+                     </div>
+                 </div>
+            
+ 
+                  <label class="input-group-text" id="basic-addon3">Maillist:(CSL-Comma Separated List)ex. mail1,mail2 or [mail1 ,name], [mail2 ,name]</label> 
+
+                <textarea rows="26" cols="138" class="form-control" type="text" name="mailstr_input" value=""> </textarea> 
+
+  
+              <br>
+              <button class="btn btn-default btn-block active" type="submit">Push</button>
+              </form>
+
+
+
+
+        </div>   
+</div>
+
+ 
+
+{% endblock %}

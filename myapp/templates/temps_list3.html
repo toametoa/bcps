@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load app_filters %}
+{% block content %}
+<div style="padding-left: 10px; padding-right: 10px">
+  <legend class="border-bottom mb-4" style="padding-left: 17px;background-color: white"> Saved Email Templates For Bulk  </legend>
+
+  <!-- 16 -->
+     <table class="table table-bordered"> <tbody> <tr class="table-light" style=" height: 100px"> 
+           <td style="width: 50%; ">
+             <div><b>Subject: </b>{{ posts.16.subject|linebreaks|truncatechars:70  }}</div>
+             <div><b>Body: </b>{{ posts.16.message|rempvep|safe|truncatechars:300 }}</div>
+           </td>
+           <td style="width: 25%">
+             <div>
+             {% if posts.16.model_pic_1 %}
+             <a href="{{ posts.16.model_pic_1.url }}"><img src="{{ posts.16.model_pic_1.url }}"  class="previewimage"></a>
+             {% endif %}
+             {% if posts.16.model_pic_2 %}
+             <a href="{{ posts.16.model_pic_2.url }}"><img src="{{ posts.16.model_pic_2.url }}"  class="previewimage"></a>
+             {% endif %}
+             {% if posts.16.model_pic_3 %}
+             <a href="{{ posts.16.model_pic_3.url }}"><img src="{{ posts.16.model_pic_3.url }}"  class="previewimage"></a>
+             {% endif %}
+             </div>
+             <div>
+             {% if posts.16.model_pic_4 %}
+             <a href="{{ posts.16.model_pic_4.url }}"><img src="{{ posts.16.model_pic_4.url }}"  class="previewimage"></a>
+             {% endif %}
+             {% if posts.16.model_pic_5 %}
+             <a href="{{ posts.16.model_pic_5.url }}"><img src="{{ posts.16.model_pic_5.url }}"  class="previewimage"></a>
+             {% endif %}
+             {% if posts.16.model_pic_6 %}
+             <a href="{{ posts.16.model_pic_6.url }}"><img src="{{ posts.16.model_pic_6.url }}"  class="previewimage"></a>
+             {% endif %}
+             </div>
+           </td>
+           <td style="width: 25%">
+             <h1><b>#: </b> 16</h1>
+             <div><small>(Unique id of this template is {{ posts.10.user  }}{{ posts.16.id  }})</small></div> 
+             <div><b>Type: </b>BULK</div>
+             <div><b>Delay: </b>{{ posts.16.delay  }} Minutes</div>
+             <div class="group float-right"  >
+               <a href="{% url 'tempdetail' posts.16.id %}" class="btn btn-info active">View</a>  
+               <a href="{% url 'tempdetail' posts.16.id %}update"  class="btn btn-info active">Edit</a>
+             </div>
+           </td>
+         </tr> </tbody> </table> 
+
+    <!-- 17 -->
+       <table class="table table-bordered"> <tbody> <tr class="table-light" style=" height: 100px"> 
+             <td style="width: 50%; ">
+               <div><b>Subject: </b>{{ posts.17.subject|linebreaks|truncatechars:70  }}</div>
+               <div><b>Body: </b>{{ posts.17.message|rempvep|safe|truncatechars:300 }}</div>
+             </td>
+             <td style="width: 25%">
+               <div>
+               {% if posts.17.model_pic_1 %}
+               <a href="{{ posts.17.model_pic_1.url }}"><img src="{{ posts.17.model_pic_1.url }}"  class="previewimage"></a>
+               {% endif %}
+               {% if posts.17.model_pic_2 %}
+               <a href="{{ posts.17.model_pic_2.url }}"><img src="{{ posts.17.model_pic_2.url }}"  class="previewimage"></a>
+               {% endif %}
+               {% if posts.17.model_pic_3 %}
+               <a href="{{ posts.17.model_pic_3.url }}"><img src="{{ posts.17.model_pic_3.url }}"  class="previewimage"></a>
+               {% endif %}
+               </div>
+               <div>
+               {% if posts.17.model_pic_4 %}
+               <a href="{{ posts.17.model_pic_4.url }}"><img src="{{ posts.17.model_pic_4.url }}"  class="previewimage"></a>
+               {% endif %}
+               {% if posts.17.model_pic_5 %}
+               <a href="{{ posts.17.model_pic_5.url }}"><img src="{{ posts.17.model_pic_5.url }}"  class="previewimage"></a>
+               {% endif %}
+               {% if posts.17.model_pic_6 %}
+               <a href="{{ posts.17.model_pic_6.url }}"><img src="{{ posts.17.model_pic_6.url }}"  class="previewimage"></a>
+               {% endif %}
+               </div>
+             </td>
+             <td style="width: 25%">
+               <h1><b>#: </b> 17</h1>
+               <div><small>(Unique id of this template is {{ posts.10.user  }}{{ posts.17.id  }})</small></div> 
+               <div><b>Type: </b>BULK</div>
+               <div><b>Delay: </b>{{ posts.17.delay  }} Minutes</div>
+               <div class="group float-right"  >
+                 <a href="{% url 'tempdetail' posts.17.id %}" class="btn btn-info active">View</a>  
+                 <a href="{% url 'tempdetail' posts.17.id %}update"  class="btn btn-info active">Edit</a>
+               </div>
+             </td>
+           </tr> </tbody> </table>
+
+
+         <!-- --------18---- -->
+
+  <table class="table table-bordered"> <tbody> <tr class="table-light" style=" height: 100px"> 
+        <td style="width: 50%; ">
+          <div><b>Subject: </b>{{ posts.18.subject|linebreaks|truncatechars:70  }}</div>
+          <div><b>Body: </b>{{ posts.18.message|rempvep|safe|truncatechars:300 }}</div>
+        </td>
+        <td style="width: 25%">
+          <div>
+          {% if posts.18.model_pic_1 %}
+          <a href="{{ posts.18.model_pic_1.url }}"><img src="{{ posts.18.model_pic_1.url }}"  class="previewimage"></a>
+          {% endif %}
+          {% if posts.18.model_pic_2 %}
+          <a href="{{ posts.18.model_pic_2.url }}"><img src="{{ posts.18.model_pic_2.url }}"  class="previewimage"></a>
+          {% endif %}
+          {% if posts.18.model_pic_3 %}
+          <a href="{{ posts.18.model_pic_3.url }}"><img src="{{ posts.18.model_pic_3.url }}"  class="previewimage"></a>
+          {% endif %}
+          </div>
+          <div>
+          {% if posts.18.model_pic_4 %}
+          <a href="{{ posts.18.model_pic_4.url }}"><img src="{{ posts.18.model_pic_4.url }}"  class="previewimage"></a>
+          {% endif %}
+          {% if posts.18.model_pic_5 %}
+          <a href="{{ posts.18.model_pic_5.url }}"><img src="{{ posts.18.model_pic_5.url }}"  class="previewimage"></a>
+          {% endif %}
+          {% if posts.18.model_pic_6 %}
+          <a href="{{ posts.18.model_pic_6.url }}"><img src="{{ posts.18.model_pic_6.url }}"  class="previewimage"></a>
+          {% endif %}
+          </div>
+        </td>
+        <td style="width: 25%">
+          <h1><b>#: </b> 18</h1>
+          <div><small>(Unique id of this template is {{ posts.10.user  }}{{ posts.18.id  }})</small></div> 
+          <div><b>Type: </b>BULK</div>
+          <div><b>Delay: </b>{{ posts.18.delay  }} Minutes</div>
+          <div class="group float-right"  >
+            <a href="{% url 'tempdetail' posts.18.id %}" class="btn btn-info active">View</a>  
+            <a href="{% url 'tempdetail' posts.18.id %}update"  class="btn btn-info active">Edit</a>
+          </div>
+        </td>
+      </tr> </tbody> </table>
+
+      <!-- 19 -->
+      <table class="table table-bordered"> <tbody> <tr class="table-light" style=" height: 100px"> 
+            <td style="width: 50%; ">
+              <div><b>Subject: </b>{{ posts.19.subject|linebreaks|truncatechars:70  }}</div>
+              <div><b>Body: </b>{{ posts.19.message|rempvep|safe|truncatechars:300 }}</div>
+            </td>
+            <td style="width: 25%">
+              <div>
+              {% if posts.19.model_pic_1 %}
+              <a href="{{ posts.19.model_pic_1.url }}"><img src="{{ posts.19.model_pic_1.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.19.model_pic_2 %}
+              <a href="{{ posts.19.model_pic_2.url }}"><img src="{{ posts.19.model_pic_2.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.19.model_pic_3 %}
+              <a href="{{ posts.19.model_pic_3.url }}"><img src="{{ posts.19.model_pic_3.url }}"  class="previewimage"></a>
+              {% endif %}
+              </div>
+              <div>
+              {% if posts.19.model_pic_4 %}
+              <a href="{{ posts.19.model_pic_4.url }}"><img src="{{ posts.19.model_pic_4.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.19.model_pic_5 %}
+              <a href="{{ posts.19.model_pic_5.url }}"><img src="{{ posts.19.model_pic_5.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.19.model_pic_6 %}
+              <a href="{{ posts.19.model_pic_6.url }}"><img src="{{ posts.19.model_pic_6.url }}"  class="previewimage"></a>
+              {% endif %}
+              </div>
+            </td>
+            <td style="width: 25%">
+              <h1><b>#: </b> 19</h1>
+              <div><small>(Unique id of this template is {{ posts.10.user  }}{{ posts.19.id  }})</small></div> 
+              <div><b>Type: </b>BULK</div>
+              <div><b>Delay: </b>{{ posts.19.delay  }} Minutes</div>
+              <div class="group float-right"  >
+                <a href="{% url 'tempdetail' posts.19.id %}" class="btn btn-info active">View</a>  
+                <a href="{% url 'tempdetail' posts.19.id %}update"  class="btn btn-info active">Edit</a>
+              </div>
+            </td>
+          </tr> </tbody> </table>
+
+
+          <!-- 20 -->
+             <table class="table table-bordered"> <tbody> <tr class="table-light" style=" height: 100px"> 
+                   <td style="width: 50%; ">
+                     <div><b>Subject: </b>{{ posts.20.subject|linebreaks|truncatechars:70  }}</div>
+                     <div><b>Body: </b>{{ posts.20.message|rempvep|safe|truncatechars:300 }}</div>
+                   </td>
+                   <td style="width: 25%">
+                     <div>
+                     {% if posts.20.model_pic_1 %}
+                     <a href="{{ posts.20.model_pic_1.url }}"><img src="{{ posts.20.model_pic_1.url }}"  class="previewimage"></a>
+                     {% endif %}
+                     {% if posts.20.model_pic_2 %}
+                     <a href="{{ posts.20.model_pic_2.url }}"><img src="{{ posts.20.model_pic_2.url }}"  class="previewimage"></a>
+                     {% endif %}
+                     {% if posts.20.model_pic_3 %}
+                     <a href="{{ posts.20.model_pic_3.url }}"><img src="{{ posts.20.model_pic_3.url }}"  class="previewimage"></a>
+                     {% endif %}
+                     </div>
+                     <div>
+                     {% if posts.20.model_pic_4 %}
+                     <a href="{{ posts.20.model_pic_4.url }}"><img src="{{ posts.20.model_pic_4.url }}"  class="previewimage"></a>
+                     {% endif %}
+                     {% if posts.20.model_pic_5 %}
+                     <a href="{{ posts.20.model_pic_5.url }}"><img src="{{ posts.20.model_pic_5.url }}"  class="previewimage"></a>
+                     {% endif %}
+                     {% if posts.20.model_pic_6 %}
+                     <a href="{{ posts.20.model_pic_6.url }}"><img src="{{ posts.20.model_pic_6.url }}"  class="previewimage"></a>
+                     {% endif %}
+                     </div>
+                   </td>
+                   <td style="width: 25%">
+                     <h1><b>#: </b> 20</h1>
+                     <div><small>(Unique id of this template is {{ posts.10.user  }}{{ posts.20.id  }})</small></div> 
+                     <div><b>Type: </b>BULK</div>
+                     <div><b>Delay: </b>{{ posts.20.delay  }} Minutes</div>
+                     <div class="group float-right"  >
+                       <a href="{% url 'tempdetail' posts.20.id %}" class="btn btn-info active">View</a>  
+                       <a href="{% url 'tempdetail' posts.20.id %}update"  class="btn btn-info active">Edit</a>
+                     </div>
+                   </td>
+                 </tr> </tbody> </table>
+      
+
+
+
+</div> 
+{% endblock content %}

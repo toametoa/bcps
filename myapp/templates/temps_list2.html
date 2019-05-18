@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load app_filters %}
+{% block content %}
+<div style="padding-left: 10px; padding-right: 10px">
+  <legend class="border-bottom mb-4" style="padding-left: 17px;background-color: white"> All Email Templates(FollowUp)  </legend> 
+
+  <table class="table table-bordered"> <tbody> <tr class="table-light" style=" height: 100px"> 
+        <td style="width: 50%; ">
+          <div><b>Subject: </b>{{ posts.11.subject|linebreaks|truncatechars:70  }}</div>
+          <div><b>Body: </b>{{ posts.11.message|rempvep|safe|truncatechars:300 }}</div>
+        </td>
+        <td style="width: 25%">
+          <div>
+          {% if posts.11.model_pic_1 %}
+          <a href="{{ posts.11.model_pic_1.url }}"><img src="{{ posts.11.model_pic_1.url }}"  class="previewimage"></a>
+          {% endif %}
+          {% if posts.11.model_pic_2 %}
+          <a href="{{ posts.11.model_pic_2.url }}"><img src="{{ posts.11.model_pic_2.url }}"  class="previewimage"></a>
+          {% endif %}
+          {% if posts.11.model_pic_3 %}
+          <a href="{{ posts.11.model_pic_3.url }}"><img src="{{ posts.11.model_pic_3.url }}"  class="previewimage"></a>
+          {% endif %}
+          </div>
+          <div>
+          {% if posts.11.model_pic_4 %}
+          <a href="{{ posts.11.model_pic_4.url }}"><img src="{{ posts.11.model_pic_4.url }}"  class="previewimage"></a>
+          {% endif %}
+          {% if posts.11.model_pic_5 %}
+          <a href="{{ posts.11.model_pic_5.url }}"><img src="{{ posts.11.model_pic_5.url }}"  class="previewimage"></a>
+          {% endif %}
+          {% if posts.11.model_pic_6 %}
+          <a href="{{ posts.11.model_pic_6.url }}"><img src="{{ posts.11.model_pic_6.url }}"  class="previewimage"></a>
+          {% endif %}
+          </div>
+        </td>
+        <td style="width: 25%">
+          <h1><b>#: </b> 1</h1>
+          <div><small>(Unique id of this template is {{ posts.10.user  }}{{ posts.11.id  }})</small></div> 
+          <div><b>Type: </b>FollowUp</div>
+          <div><b>Delay: </b>{{ posts.11.delay  }} Minutes</div>
+          <div class="group float-right"  >
+            <a href="{% url 'tempdetail' posts.11.id %}" class="btn btn-info active">View</a>  
+            <a href="{% url 'tempdetail' posts.11.id %}update"  class="btn btn-info active">Edit</a>
+          </div>
+        </td>
+      </tr> </tbody> </table>
+
+      <!-- 12 -->
+      <table class="table table-bordered"> <tbody> <tr class="table-light" style=" height: 100px"> 
+            <td style="width: 50%; ">
+              <div><b>Subject: </b>{{ posts.12.subject|linebreaks|truncatechars:70  }}</div>
+              <div><b>Body: </b>{{ posts.12.message|rempvep|safe|truncatechars:300 }}</div>
+            </td>
+            <td style="width: 25%">
+              <div>
+              {% if posts.12.model_pic_1 %}
+              <a href="{{ posts.12.model_pic_1.url }}"><img src="{{ posts.12.model_pic_1.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.12.model_pic_2 %}
+              <a href="{{ posts.12.model_pic_2.url }}"><img src="{{ posts.12.model_pic_2.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.12.model_pic_3 %}
+              <a href="{{ posts.12.model_pic_3.url }}"><img src="{{ posts.12.model_pic_3.url }}"  class="previewimage"></a>
+              {% endif %}
+              </div>
+              <div>
+              {% if posts.12.model_pic_4 %}
+              <a href="{{ posts.12.model_pic_4.url }}"><img src="{{ posts.12.model_pic_4.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.12.model_pic_5 %}
+              <a href="{{ posts.12.model_pic_5.url }}"><img src="{{ posts.12.model_pic_5.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.12.model_pic_6 %}
+              <a href="{{ posts.12.model_pic_6.url }}"><img src="{{ posts.12.model_pic_6.url }}"  class="previewimage"></a>
+              {% endif %}
+              </div>
+            </td>
+            <td style="width: 25%">
+              <h1><b>#: </b> 2</h1>
+              <div><small>(Unique id of this template is {{ posts.10.user  }}{{ posts.12.id  }})</small></div> 
+              <div><b>Type: </b>FollowUp</div>
+              <div><b>Delay: </b>{{ posts.12.delay  }} Minutes</div>
+              <div class="group float-right"  >
+                <a href="{% url 'tempdetail' posts.12.id %}" class="btn btn-info active">View</a>  
+                <a href="{% url 'tempdetail' posts.12.id %}update"  class="btn btn-info active">Edit</a>
+              </div>
+            </td>
+          </tr> </tbody> </table>
+      <!-- 13 -->
+      <table class="table table-bordered"> <tbody> <tr class="table-light" style=" height: 100px"> 
+            <td style="width: 50%; ">
+              <div><b>Subject: </b>{{ posts.13.subject|linebreaks|truncatechars:70  }}</div>
+              <div><b>Body: </b>{{ posts.13.message|rempvep|safe|truncatechars:300 }}</div>
+            </td>
+            <td style="width: 25%">
+              <div>
+              {% if posts.13.model_pic_1 %}
+              <a href="{{ posts.13.model_pic_1.url }}"><img src="{{ posts.13.model_pic_1.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.13.model_pic_2 %}
+              <a href="{{ posts.13.model_pic_2.url }}"><img src="{{ posts.13.model_pic_2.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.13.model_pic_3 %}
+              <a href="{{ posts.13.model_pic_3.url }}"><img src="{{ posts.13.model_pic_3.url }}"  class="previewimage"></a>
+              {% endif %}
+              </div>
+              <div>
+              {% if posts.13.model_pic_4 %}
+              <a href="{{ posts.13.model_pic_4.url }}"><img src="{{ posts.13.model_pic_4.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.13.model_pic_5 %}
+              <a href="{{ posts.13.model_pic_5.url }}"><img src="{{ posts.13.model_pic_5.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.13.model_pic_6 %}
+              <a href="{{ posts.13.model_pic_6.url }}"><img src="{{ posts.13.model_pic_6.url }}"  class="previewimage"></a>
+              {% endif %}
+              </div>
+            </td>
+            <td style="width: 25%">
+              <h1><b>#: </b> 3</h1>
+              <div><small>(Unique id of this template is {{ posts.10.user  }}{{ posts.13.id  }})</small></div> 
+              <div><b>Type: </b>FollowUp</div>
+              <div><b>Delay: </b>{{ posts.13.delay  }} Minutes</div>
+              <div class="group float-right"  >
+                <a href="{% url 'tempdetail' posts.13.id %}" class="btn btn-info active">View</a>  
+                <a href="{% url 'tempdetail' posts.13.id %}update"  class="btn btn-info active">Edit</a>
+              </div>
+            </td>
+          </tr> </tbody> </table>
+      <!-- 14 -->
+      <table class="table table-bordered"> <tbody> <tr class="table-light" style=" height: 100px"> 
+            <td style="width: 50%; ">
+              <div><b>Subject: </b>{{ posts.14.subject|linebreaks|truncatechars:70  }}</div>
+              <div><b>Body: </b>{{ posts.14.message|rempvep|safe|truncatechars:300 }}</div>
+            </td>
+            <td style="width: 25%">
+              <div>
+              {% if posts.14.model_pic_1 %}
+              <a href="{{ posts.14.model_pic_1.url }}"><img src="{{ posts.14.model_pic_1.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.14.model_pic_2 %}
+              <a href="{{ posts.14.model_pic_2.url }}"><img src="{{ posts.14.model_pic_2.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.14.model_pic_3 %}
+              <a href="{{ posts.14.model_pic_3.url }}"><img src="{{ posts.14.model_pic_3.url }}"  class="previewimage"></a>
+              {% endif %}
+              </div>
+              <div>
+              {% if posts.14.model_pic_4 %}
+              <a href="{{ posts.14.model_pic_4.url }}"><img src="{{ posts.14.model_pic_4.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.14.model_pic_5 %}
+              <a href="{{ posts.14.model_pic_5.url }}"><img src="{{ posts.14.model_pic_5.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.14.model_pic_6 %}
+              <a href="{{ posts.14.model_pic_6.url }}"><img src="{{ posts.14.model_pic_6.url }}"  class="previewimage"></a>
+              {% endif %}
+              </div>
+            </td>
+            <td style="width: 25%">
+              <h1><b>#: </b> 4</h1>
+              <div><small>(Unique id of this template is {{ posts.10.user  }}{{ posts.14.id  }})</small></div> 
+              <div><b>Type: </b>FollowUp</div>
+              <div><b>Delay: </b>{{ posts.14.delay  }} Minutes</div>
+              <div class="group float-right"  >
+                <a href="{% url 'tempdetail' posts.14.id %}" class="btn btn-info active">View</a>  
+                <a href="{% url 'tempdetail' posts.14.id %}update"  class="btn btn-info active">Edit</a>
+              </div>
+            </td>
+          </tr> </tbody> </table>
+      <!-- 14 -->
+      <table class="table table-bordered"> <tbody> <tr class="table-light" style=" height: 100px"> 
+            <td style="width: 50%; ">
+              <div><b>Subject: </b>{{ posts.15.subject|linebreaks|truncatechars:70  }}</div>
+              <div><b>Body: </b>{{ posts.15.message|rempvep|safe|truncatechars:300 }}</div>
+            </td>
+            <td style="width: 25%">
+              <div>
+              {% if posts.15.model_pic_1 %}
+              <a href="{{ posts.15.model_pic_1.url }}"><img src="{{ posts.15.model_pic_1.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.15.model_pic_2 %}
+              <a href="{{ posts.15.model_pic_2.url }}"><img src="{{ posts.15.model_pic_2.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.15.model_pic_3 %}
+              <a href="{{ posts.15.model_pic_3.url }}"><img src="{{ posts.15.model_pic_3.url }}"  class="previewimage"></a>
+              {% endif %}
+              </div>
+              <div>
+              {% if posts.15.model_pic_4 %}
+              <a href="{{ posts.15.model_pic_4.url }}"><img src="{{ posts.15.model_pic_4.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.15.model_pic_5 %}
+              <a href="{{ posts.15.model_pic_5.url }}"><img src="{{ posts.15.model_pic_5.url }}"  class="previewimage"></a>
+              {% endif %}
+              {% if posts.15.model_pic_6 %}
+              <a href="{{ posts.15.model_pic_6.url }}"><img src="{{ posts.15.model_pic_6.url }}"  class="previewimage"></a>
+              {% endif %}
+              </div>
+            </td>
+            <td style="width: 25%">
+              <h1><b>#: </b> 5</h1>
+              <div><small>(Unique id of this template is {{ posts.10.user  }}{{ posts.15.id  }})</small></div> 
+              <div><b>Type: </b>FollowUp</div>
+              <div><b>Delay: </b>{{ posts.15.delay  }} Minutes</div>
+              <div class="group float-right"  >
+                <a href="{% url 'tempdetail' posts.15.id %}" class="btn btn-info active">View</a>  
+                <a href="{% url 'tempdetail' posts.15.id %}update"  class="btn btn-info active">Edit</a>
+              </div>
+            </td>
+          </tr> </tbody> </table>
+      <!-- 15 -->
+
+
+
+</div><!-- 
+<div><b>10: </b>{{ posts.10.message  }} {{ posts.10.user  }} </div>
+<div><b>11: </b>{{ posts.11.message  }} {{ posts.11.user  }}</div>
+<div><b>12: </b>{{ posts.12.message  }} {{ posts.12.user  }}</div>
+<div><b>13: </b>{{ posts.13.message  }} {{ posts.13.user  }}</div> -->
+{% endblock content %}
